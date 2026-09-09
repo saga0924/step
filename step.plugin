@@ -1,0 +1,26 @@
+#!name = 森林step自动提交
+#!desc = 蚂蚁森林每日自动步数
+#!author = demo
+#!system = iOS,iPadOS,macOS
+#!system_version = 15
+#!loon_version = 3.5.1(978)
+#!tag = king,自动提交,定时
+#!type = normal
+# 脚本制作时间 = 2026.9.9
+
+[Argument]
+phone = input,"",tag=phone账号,desc=填入手机号/邮箱
+pwd = input,"",tag=pwd密码,desc=填入密码
+num = input,"",tag=num参数,desc=填入num数值
+enable = switch,false,tag=启用脚本,desc=拦截请求开关
+cron_enable = switch,false,tag=开启定时任务,desc=打开后后台定时执行
+cron_expr = input,"0 7 * * *",tag=Cron表达式,desc=默认每天早上7点；格式：分 时 日 月 周
+notify_switch = switch,true,tag=开启推送通知,desc=定时任务完成弹出系统通知
+
+[Script]
+http-request ^http:\/\/8\.140\.250\.130\/king\/api\/step script-path=https://raw.githubusercontent.com/saga0924/step/refs/heads/main/step.js,requires-body=true,enable={enable},argument=[{phone},{pwd},{num}]
+
+cron {cron_expr} script-path=https://raw.githubusercontent.com/saga0924/step/refs/heads/main/step-cron.js,timeout=300,enable={cron_enable},argument=[{phone},{pwd},{num},{notify_switch}]
+
+[Mitm]
+hostname = 8.140.250.130
