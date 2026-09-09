@@ -40,7 +40,8 @@ $httpClient.post({
             const resJson = JSON.parse(data)
             if(resJson.code === 200){
                 if(notify){
-                    $notification.post("森林step任务","✅执行成功","接口返回success")
+                    // 修改这里：展示本次提交的步数num
+                    $notification.post("森林step任务","✅执行成功","本次提交步数："+num)
                 }
             }else{
                 if(notify){
