@@ -1,6 +1,6 @@
-#!name = king‑step自动提交
-#!desc = /king/api/step 表单自动填入 phone pwd num + Cron定时任务
-#!author = demo
+#!name = 森林step自动提交
+#!desc = 蚂蚁森林每日自动步数
+#!author = 2026.9.9
 #!system = iOS,iPadOS,macOS
 #!loon_version = 3.5.1(978)
 #!tag = king,自动提交,定时
