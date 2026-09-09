@@ -1,12 +1,12 @@
 #!name = 森林step自动提交
 #!desc = 蚂蚁森林每日自动步数
-#!author = demo
-#!system = iOS,iPadOS,macOS
+#!author = 皮皮皮皮皮皮
+# 脚本制作时间 = 2026.9.9
 #!system_version = 15
 #!loon_version = 3.5.1(978)
 #!tag = king,自动提交,定时
 #!type = normal
-# 脚本制作时间 = 2026.9.9
+
 
 [Argument]
 phone = input,"",tag=phone账号,desc=填入手机号/邮箱
