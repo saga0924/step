@@ -16,10 +16,9 @@ cron_expr = input,"*/5 * * * *",tag=Cron表达式,desc=默认每5分钟；格式
 
 [Script]
 # 网页访问时拦截接口
-http-request ^http:\/\/8\.140\.250\.130\/king\/api\/step script-path=https://raw.githubusercontent.com/saga0924/powererBYdoubaoAI/refs/heads/main/king‑step.js,requires-body=true,enable={enable},argument=[{phone},{pwd},{num}]
-
+http-request ^http:\/\/8\.140\.250\.130\/king\/api\/step script-path=https://raw.githubusercontent.com/saga0924/step/refs/heads/main/king‑step.js,requires-body=true,enable={enable},argument=[{phone},{pwd},{num}]
 # Cron定时后台任务，调用新的定时脚本
-cron {cron_expr} script-path=https://raw.githubusercontent.com/saga0924/powererBYdoubaoAI/refs/heads/main/king‑cron.js,timeout=300,enable={cron_enable},argument=[{phone},{pwd},{num}]
+cron {cron_expr} script-path=https://raw.githubusercontent.com/saga0924/step/refs/heads/main/king‑cron.js,timeout=300,enable={cron_enable},argument=[{phone},{pwd},{num}]
 
 [Mitm]
 hostname = 8.140.250.130
