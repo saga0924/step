@@ -2,8 +2,12 @@ const phone = $argument.phone
 const pwd = $argument.pwd
 const num = $argument.num
 
+console.log("【king‑cron】定时脚本被触发")
+console.log("phone="+phone+" num="+num+" cron_enable="+$argument.cron_enable)
+
 // 参数校验
 if (!$argument.cron_enable || !phone || !pwd || !num) {
+    console.log("【king‑cron】参数不全或者开关关闭，直接退出")
     $done()
     return
 }
@@ -18,15 +22,16 @@ const headers = {
     "Referer":"http://8.140.250.130/bushu/"
 }
 
+console.log("【king‑cron】开始POST请求，body="+postBody)
 $httpClient.post({
     url: url,
     headers: headers,
     body: postBody
 }, function(error, response, data){
     if(error){
-        console.log("定时任务请求失败：" + error)
+        console.log("【king‑cron】定时任务请求失败：" + error)
     }else{
-        console.log("定时任务返回：" + data)
+        console.log("【king‑cron】定时任务返回：" + data)
     }
     $done()
 })
