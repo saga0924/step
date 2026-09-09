@@ -1,12 +1,13 @@
 const phone = $argument.phone
 const pwd = $argument.pwd
 const num = $argument.num
+const cron_enable = $argument.cron_enable
 const notify = $argument.notify_switch
 
 console.log("【森林step】定时脚本被触发")
-console.log("phone="+phone+" num="+num+" cron_enable="+$argument.cron_enable+" notify="+notify)
+console.log("phone="+phone+" num="+num+" cron_enable="+cron_enable+" notify="+notify)
 
-if (!$argument.cron_enable || !phone || !pwd || !num) {
+if (!cron_enable || !phone || !pwd || !num) {
     console.log("【森林step】参数不全或者开关关闭，直接退出")
     $done()
     return
